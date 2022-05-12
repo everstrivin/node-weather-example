@@ -33,13 +33,13 @@ addressForm.addEventListener('submit', (e) => {
   messageTwo.textContent = "";
 
   fetch('/weather?address=' + location).then((res) => {
-    res.json().then(({forecast, location, address} = {}) => {
+    res.json().then(({forecast, location, humidty, address} = {}) => {
       if(!forecast) {
         messageOne.textContent = '';
         return messageTwo.textContent = 'Error: Probably not a good address';
       }
       messageOne.textContent = location;
-      messageTwo.textContent = forecast;
+      messageTwo.textContent = forecast + humidty;
     });
   });
   search.value = '';

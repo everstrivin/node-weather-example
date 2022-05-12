@@ -50,7 +50,7 @@ app.get('/weather', (req, res) => {
         return res.send({ error });
       };
     
-      forecast(lon, lat, (error, {weatherDesc, currTemp, currFeel, precip}) => {
+      forecast(lon, lat, (error, {weatherDesc, currTemp, currFeel, precip, humidity}) => {
         if(error) {
           return res.send({ 
             error
@@ -59,6 +59,7 @@ app.get('/weather', (req, res) => {
         res.send(
           {
             forecast: 'It is currently ' + weatherDesc + ' and ' + currTemp + '° but feels like ' + currFeel + '° and there is ' + precip * 100 + '% chance of rain.',
+            humidty: 'The humidity today is: ' + humidity,
             location: loc,
             address: req.query.address
           }
