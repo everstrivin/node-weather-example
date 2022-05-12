@@ -39,7 +39,7 @@ addressForm.addEventListener('submit', (e) => {
         return messageTwo.textContent = 'Error: Probably not a good address';
       }
       messageOne.textContent = location;
-      messageTwo.textContent = forecast + humidty;
+      messageTwo.textContent = forecast + " " + humidty + "%";
     });
   });
   search.value = '';
